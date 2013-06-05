@@ -11,7 +11,7 @@ scheduler.every '1m' do
     puts 'download news feed'
 
 
-    db =  SQLite3::Database.new "C:/Users/kbui/Documents/GitHub/Calendarapp/db/development.sqlite3"
+    db =  SQLite3::Database.new "C:/Users/cbullock/Documents/Aptana Studio 3 Workspace/Calendar App/db/development.sqlite3"
     db.execute("SELECT * from users") do |user| 
       
      
@@ -43,7 +43,54 @@ scheduler.every '1m' do
           
            UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
         end
-           
+        if event[13]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[14]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[15]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[16]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[17]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end
+        if event[18]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end       
+        if event[19]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[20]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[21]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[22]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[23]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[24]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end   
         
         
       end
