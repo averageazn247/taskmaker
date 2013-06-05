@@ -9,6 +9,8 @@ scheduler = Rufus::Scheduler.start_new
  
 scheduler.every '1m' do
     puts 'download news feed'
+    puts Date.today
+    
 
 
     db =  SQLite3::Database.new "C:/Users/cbullock/Documents/Aptana Studio 3 Workspace/Calendar App/db/development.sqlite3"
