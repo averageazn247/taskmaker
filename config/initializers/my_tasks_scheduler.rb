@@ -45,7 +45,62 @@ scheduler.every '1m' do
         if event[10]
          UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver  
         end
-  
+        if event[11]
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end
+        if event[12]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end
+        if event[13]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[14]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[15]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[16]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[17]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end
+        if event[18]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end       
+        if event[19]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[20]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[21]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[22]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[23]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end        
+        if event[24]
+          
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+        end   
+        
           
             
         end
