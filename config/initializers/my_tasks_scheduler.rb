@@ -13,7 +13,7 @@ scheduler.every '1m' do
     
 
 
-    db =  SQLite3::Database.new "C:/Users/cbullock/Documents/Aptana Studio 3 Workspace/Calendar App/db/development.sqlite3"
+    db =  SQLite3::Database.new "C:/Users/kbui/Documents/GitHub/Calendarapp/db/development.sqlite3"
     db.execute("SELECT * from users") do |user| 
       
      
