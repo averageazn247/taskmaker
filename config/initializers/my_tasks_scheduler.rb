@@ -23,15 +23,19 @@ scheduler.every '1m' do
     
       db.execute("select * from events where events.creator ='"+name+"'") do |event|
         #puts "in event"
+        
         event_name=event[1]
         event_desc=event[2]
         #24 last event
         event_date=event[3]
         event_time=event[26]
-        
-        put Data.past(event_date)
-
-        if event[9]
+         
+        puts Date.parse(event_date) < Date.today
+        if Date.parse(event_date) < Date.today
+          
+          
+        else
+              if event[9]
           scheduler.cron '13 0 10 * * 1-5' do
            UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
            
@@ -41,62 +45,13 @@ scheduler.every '1m' do
         if event[10]
          UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver  
         end
-        if event[11]
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+  
+          
+            
         end
-        if event[12]
           
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end
-        if event[13]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[14]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[15]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[16]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[17]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end
-        if event[18]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end       
-        if event[19]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[20]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[21]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[22]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[23]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end        
-        if event[24]
-          
-           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-        end   
-        
+
+    
         
       end
      
