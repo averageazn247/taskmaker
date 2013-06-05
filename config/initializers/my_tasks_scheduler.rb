@@ -6,10 +6,10 @@ require 'rubygems'   # Need this to make use of any Gem, in our case it is rufus
 
 require 'rufus/scheduler'  # Need this to make use of Rufus::Scheduler
 scheduler = Rufus::Scheduler.start_new
- 
+today= Date.today
 scheduler.every '1m' do
     puts 'download news feed'
-    puts Date.today
+    
     
 
 
@@ -29,10 +29,12 @@ scheduler.every '1m' do
         event_date=event[3]
         event_time=event[26]
         
+        put Data.past(event_date)
 
         if event[9]
           scheduler.cron '13 0 10 * * 1-5' do
            UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+           
            end
         end
         
