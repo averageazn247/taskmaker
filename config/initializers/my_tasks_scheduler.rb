@@ -30,18 +30,18 @@ scheduler.every '1m' do
 
         if event[9]
 
-          UserMailer.event(name,email,event_name).deliver 
+          UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
         end
         
         if event[10]
-          UserMailer.event(name,email,event_name).deliver 
+         UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver  
         end
         if event[11]
-          UserMailer.event(name,email,event_name).deliver 
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
         end
         if event[12]
           
-          UserMailer.event(name,email,event_name).deliver 
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
         end
            
         
