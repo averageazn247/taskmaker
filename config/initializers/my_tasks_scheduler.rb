@@ -29,8 +29,9 @@ scheduler.every '1m' do
         
 
         if event[9]
-
-          UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+          scheduler.cron '13 0 10 * * 1-5' do
+           UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+           end
         end
         
         if event[10]
