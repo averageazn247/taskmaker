@@ -28,22 +28,16 @@ scheduler.every '1m' do
         event_desc=event[2]
         #24 last event
         event_date=event[3]
-        event_time=event[26]
-<<<<<<< HEAD
-        
-
-        if event[9]
-          scheduler.cron '0 10 * * 7' do
-=======
+        event_time=event[26] 
          
         puts Date.parse(event_date) < Date.today
         if Date.parse(event_date) < Date.today
           
           
         else
-              if event[9]
+         if event[9]
           scheduler.cron '13 0 10 * * 1-5' do
->>>>>>> 7e3e24d109d6ec587e317ed101542c9c0dc330a9
+ 
            UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
            
            end
