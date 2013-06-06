@@ -6,14 +6,14 @@ require 'rubygems'   # Need this to make use of any Gem, in our case it is rufus
 
 require 'rufus/scheduler'  # Need this to make use of Rufus::Scheduler
 scheduler = Rufus::Scheduler.start_new
- 
+today= Date.today
 scheduler.every '1m' do
     puts 'download news feed'
-    puts Date.today
+    
     
 
 
-    db =  SQLite3::Database.new "C:/Users/cbullock/Documents/Aptana Studio 3 Workspace/Calendar App/db/development.sqlite3"
+    db =  SQLite3::Database.new "C:/Users/kbui/Documents/GitHub/Calendarapp/db/development.sqlite3"
     db.execute("SELECT * from users") do |user| 
       
      
@@ -23,16 +23,29 @@ scheduler.every '1m' do
     
       db.execute("select * from events where events.creator ='"+name+"'") do |event|
         #puts "in event"
+        
         event_name=event[1]
         event_desc=event[2]
         #24 last event
         event_date=event[3]
         event_time=event[26]
+<<<<<<< HEAD
         
 
         if event[9]
           scheduler.cron '0 10 * * 7' do
+=======
+         
+        puts Date.parse(event_date) < Date.today
+        if Date.parse(event_date) < Date.today
+          
+          
+        else
+              if event[9]
+          scheduler.cron '13 0 10 * * 1-5' do
+>>>>>>> 7e3e24d109d6ec587e317ed101542c9c0dc330a9
            UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+           
            end
         end
         
@@ -102,6 +115,12 @@ scheduler.every '1m' do
            UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
         end   
         
+          
+            
+        end
+          
+
+    
         
       end
      
