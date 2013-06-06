@@ -23,7 +23,7 @@ scheduler.every '1m' do
      holidays = Array.new 
      db.execute("select * from holidays where holidays.creator ='"+name+"'") do |holiday|
       holidays.push holiday[2]
-      puts holiday[2]
+       
      end
     
       db.execute("select * from events where events.creator ='"+name+"'") do |event|
@@ -35,8 +35,8 @@ scheduler.every '1m' do
         event_date=event[3]
         event_time=event[26] 
          
-         
-        if Date.parse(event_date) < Date.today
+         puts event_date
+        if Date.parse(event_date) < Date.today or holidays.include? event_date
           puts "skip"
           
         else
