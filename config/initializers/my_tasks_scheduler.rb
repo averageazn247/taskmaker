@@ -7,7 +7,7 @@ require 'rubygems'   # Need this to make use of any Gem, in our case it is rufus
 require 'rufus/scheduler'  # Need this to make use of Rufus::Scheduler
 scheduler = Rufus::Scheduler.start_new
 today= Date.today
-scheduler.every '15m' do
+scheduler.every '1m' do
    
 
     
@@ -43,19 +43,19 @@ scheduler.every '15m' do
           else
            if event[9]
              
-            scheduler.cron '13 0 10 * * 1-5' do
-            
+             
+            puts "in 9"
   
-              
+              scheduler.cron '13 0 10 * * 1-5' do
              UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
+           puts "mailed 9"
+           end
+  
            
-  
-  
-             end
           end
           
           if event[10]
-            puts "in 10"
+            
             scheduler.cron '0 10 * * 6' do
            UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver  
           
