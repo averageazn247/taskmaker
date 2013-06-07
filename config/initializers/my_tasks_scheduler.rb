@@ -7,13 +7,15 @@ require 'rubygems'   # Need this to make use of any Gem, in our case it is rufus
 require 'rufus/scheduler'  # Need this to make use of Rufus::Scheduler
 scheduler = Rufus::Scheduler.start_new
 today= Date.today
-scheduler.every '15m' do
+scheduler.every '1m' do
    
 
     
 
 
-    db =  SQLite3::Database.new "C:/Users/kbui/Documents/GitHub/Calendarapp/db/development.sqlite3"
+    #db =  SQLite3::Database.new "C:/Users/kbui/Documents/GitHub/Calendarapp/db/development.sqlite3"
+    #db =  SQLite3::Database.new "C:/Users/cbullock/Documents/Aptana Studio 3 Workspace/Calendar App/db/developement.sqlite3"
+
     db.execute("SELECT * from users") do |user| 
       
      
@@ -41,6 +43,7 @@ scheduler.every '15m' do
             puts "skip"
             
           else
+             sms_fu.deliver(user.phone, user.carrier,"Reminder: The event " + event_name + "is on " + event_date.to_s)
            if event[9]
              
              
