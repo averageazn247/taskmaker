@@ -44,11 +44,12 @@ scheduler.every '1m' do
            if event[9]
              
              
-            puts "in 9"
+
   
               scheduler.cron '13 0 10 * * 1-5' do
              UserMailer.event(name,email,event_name,event_desc,event_date,event_time).deliver 
-           puts "mailed 9"
+           
+
            end
   
            
