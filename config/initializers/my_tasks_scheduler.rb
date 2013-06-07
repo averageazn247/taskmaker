@@ -7,7 +7,7 @@ require 'rubygems'   # Need this to make use of any Gem, in our case it is rufus
 require 'rufus/scheduler'  # Need this to make use of Rufus::Scheduler
 scheduler = Rufus::Scheduler.start_new
 today= Date.today
-scheduler.every '1m' do
+scheduler.every '15m' do
    
 
     
