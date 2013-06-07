@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'daemons'
 gem 'delayed_job_active_record'
 gem 'resque', :require => "resque/server"
+gem 'pony'
+gem 'sms_fu'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
