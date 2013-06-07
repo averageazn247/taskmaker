@@ -10,9 +10,9 @@ class UserMailer < ActionMailer::Base
     @date = date
     removedashes = user.phone.split('-')
     user.phone = removedashes[0] + removedashes[1] + removedashes[2]
-    removedate = time.split(' ')
-    removetime = removedate[1].split(':')
-    @time = removetime[0]+':'+removetime[1]
+
+    @time = time
+
     
     @desc = desc
 
