@@ -6,14 +6,14 @@ require 'sms_fu'
 
 require 'rufus/scheduler'  # Need this to make use of Rufus::Scheduler
 scheduler = Rufus::Scheduler.start_new
-today= Date.today
+
  twilio_sid = "AC1a126105d88327b67395bc83a291bbd5"
 twilio_token = "c542832613c1462a2ea602585f683b68"
 twilio_phone_number = "6165555555"
  
 twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
 scheduler.every '1m' do
-   
+   today= Date.today
 
     
 
@@ -48,26 +48,42 @@ scheduler.every '1m' do
          removedate = time.split(' ')
          removetime = removedate[1].split(':')
          event_year= event_date.split('-')
-         #event_time=Time.new(event_year[0],event_year[1],event_year[2],removetime[0],remove )
-        # event_time=removetime[0]*60*60+removetime[1]*60
-       #  puts "event time"+event_time
          
-      #   today_time=Time.now.hour*60*60+Time.now.min*60
-       # puts "today time"+today_time
+       #  puts "Event year"+ event_year
+         puts removedate
+         event_time=Time.new(event_year[0].to_i,event_year[1].to_i,event_year[2].to_i,removetime[0].to_i,removetime[1].to_i,removetime[2].to_i )
+         event_time=removetime[0].to_i*60*60+removetime[1].to_i*60-3600
+         puts "event_time"
+         puts event_name
+         puts event_time
+         puts event_date
+         puts "event year"
+         puts event_year
          
+        today_time=(Time.now.hour.to_i)*60*60+(Time.now.min.to_i)*60
+        puts " today time "
+        puts today_time
+        today_year=Time.now.year
+        today_month=Time.now.month
+        today_day= Time.now.day
+ 
+ 
+       
           
-          if event_time   == today_time  
-            puts "now"
-                        twilio_client.account.sms.messages.create(
-              :from => "+1#{5125492953}",
-              :to => number_to_send_to,
-              :body => "Reminder: The event " + event_name + "is on " + event_date.to_s
-              )  
+          if (today_time-60<event_time && event_time  < today_time+60 )  &&(today_year== event_year[0].to_i && today_month== event_year[1].to_i  && today_day == event_year[2].to_i )
+            puts "now in event time"
+           
+                         twilio_client.account.sms.messages.create(
+               :from => "+1#{5125492953}",
+               :to => number_to_send_to,
+               :body => "Reminder: The event " + event_name + "is on " + event_date.to_s
+               )  
             
           end
           event_time=removetime[0]+':'+removetime[1]
           if Date.parse(event_date) < Date.today or holidays.include? event_date
-            puts "skip"
+            
+
             
           else
 
